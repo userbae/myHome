@@ -1,18 +1,19 @@
 import { Link, Outlet } from "react-router-dom"
-import "../css/layout.css"
+import LoginForm from "../conponent/LoginForm"
+import Navbar from "../conponent/Navbar"
+
 
 function Layout() {
   return (
-    <div className="container">
-      <div className=" top-layout">
-        <div style={{flex:"1.5"}}><Link to="">홈</Link></div>
-        <div ><Link to="/login">로그인</Link></div>
-        <div ><Link to="/join">회원가입</Link></div>
-        {/* <div ><Link to="">로그아웃</Link></div>
-        <div className="col"><Link to="">마이페이지</Link></div> */}
+    <div className="body" style={{ backgroundColor: "wheat",  height: "100vh", display:"flex", alignItems:"center",justifyContent:"center" }}>
+      <div style={{ backgroundColor: "white", borderRadius: "40px", display: "flex", padding:"20px", width:"90%", height: "80%"}}>
+        <div style={{ marginRight:"50px", display:"flex", flexDirection:"column", gap:"10px"}}>
+          <LoginForm />
+          <Navbar />
+        </div>
+        <Outlet />
       </div>
-    
-      <Outlet />
+
     </div>
   )
 }

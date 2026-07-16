@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import Layout from "./assets/pages/Layout"
-import Home from "./assets/pages/Home"
-import Login from "./assets/pages/Login"
-import Join from "./assets/pages/Join"
+import MainView from "./assets/pages/MainView"
+
 
 
 function App() {
@@ -14,9 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route index element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/join" element={<Join/>} />
+            <Route index element={<MainView/>} />
+            
           </Route>
         </Routes>
       </BrowserRouter>

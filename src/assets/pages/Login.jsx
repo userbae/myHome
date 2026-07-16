@@ -16,11 +16,12 @@ function Login() {
   // 아이디, 비번이 있는지 확인
   const logFormCheck = (event) => { 
     event.preventDefault()
-    if(loginData.userid == "" || loginData.userid == undefined) return;
-    if(loginData.userpwd == "" || loginData.userpwd == undefined) return;
+    if(loginData.userid == "" || loginData.userid == undefined) return alert("아이디를 입력하세요");
+    if(loginData.userpwd == "" || loginData.userpwd == undefined) return alert("비밀번호를 입력하세요");
 
     // 비동기식으로 백엔드
-    alert("백엔드 수행함")
+    // alert("백엔드 수행함")
+    location.href = "/"
   }
   return (
     <div className="main">
