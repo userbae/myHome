@@ -1,10 +1,12 @@
 .row {
   padding: 10px 0;
-  border-top: 2px solid #222;
   border-bottom: 1px solid #ccc;
   width: 100%;
 }
+.title {
+  border-top: 2px solid #222;
+}
 
-.row div {
+.row > div {
   font-size: 1.2em;
 }

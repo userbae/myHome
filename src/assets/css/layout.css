@@ -22,7 +22,7 @@
   gap: 30px;
 }
 
-.loginForm {
+.loginForm div {
   display: flex;
   flex-direction: column;
   padding: 10px 0;
