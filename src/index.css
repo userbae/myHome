@@ -4,3 +4,7 @@ a:hover {
   text-decoration: none;
   color: black;
 }
+form {
+  display: flex;
+  flex-direction: column;
+}

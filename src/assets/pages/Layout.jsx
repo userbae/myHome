@@ -1,21 +1,36 @@
-import { Link, Outlet } from "react-router-dom"
-import LoginForm from "../conponent/LoginForm"
-import Navbar from "../conponent/Navbar"
-
+import { Link, Outlet } from "react-router-dom";
+import "../css/layout.css";
+import Login from "./Login";
+import { useState } from "react";
+import SignUp from "./SignUp";
 
 function Layout() {
-  return (
-    <div className="body" style={{ backgroundColor: "wheat",  height: "100vh", display:"flex", alignItems:"center",justifyContent:"center" }}>
-      <div style={{ backgroundColor: "white", borderRadius: "40px", display: "flex", padding:"20px", width:"90%", height: "80%"}}>
-        <div style={{ marginRight:"50px", display:"flex", flexDirection:"column", gap:"10px"}}>
-          <LoginForm />
-          <Navbar />
-        </div>
-        <Outlet />
-      </div>
+  const [isLogin, setIsLogin] = useState(true);
+  const isBtn = () => setIsLogin(!isLogin);
 
+  return (
+    <div className="container-xl">
+      <Link to="/">
+        <div className="banner">
+          <div style={{ marginLeft: "20px", marginBottom: "20px" }}>
+            <h1>BAE Blog</h1>
+            <strong>new3930@gmail.com</strong>
+          </div>
+
+          <img src="src/assets/img/star.png" alt="banner" />
+        </div>
+      </Link>
+
+      <div className="main">
+        <div className="loginForm">
+          {isLogin ? <Login isBtn={isBtn} /> : <SignUp isBtn={isBtn} />}
+        </div>
+        <div className="content">
+          <Outlet />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

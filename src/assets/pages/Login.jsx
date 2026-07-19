@@ -1,50 +1,50 @@
-import { useState } from "react"
-import '../css/login.css'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Login() {
-  // 아이디, 비번을 보관할 변수
-  const [loginData, setLoginData] = useState({})
-  
-  // form 데이터를 useState변수에 셋팅
-  const setLoginForm = (event) => {
+function Login({ isBtn }) {
+  const [data, setData] = useState({ userid: "", userpwd: "" });
+
+  const dataChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setLoginData((p)=>{return{ ...p, [name]: value}})
-    // setLoginData({...loginData,[name]: value})
-    console.log(loginData)
-  }
-  // 아이디, 비번이 있는지 확인
-  const logFormCheck = (event) => { 
-    event.preventDefault()
-    if(loginData.userid == "" || loginData.userid == undefined) return alert("아이디를 입력하세요");
-    if(loginData.userpwd == "" || loginData.userpwd == undefined) return alert("비밀번호를 입력하세요");
-
+    setData((p) => {
+      return { ...p, [name]: value };
+    });
+  };
+  const formCheck = (event) => {
+    event.preventDefault();
+    if (data.userid == "") return alert("아이디를 입력해주세요");
+    if (data.userpwd == "") return alert("비밀번호를 입력해주세요");
     // 비동기식으로 백엔드
-    // alert("백엔드 수행함")
-    location.href = "/"
-  }
+    alert("백엔드 수행함");
+    // 홈화면으로 이동
+    location.href = "/";
+  };
   return (
-    <div className="main">
-      <h1 style={{ textAlign: 'center', marginTop: "50px" }}>로그인</h1>
-      <form  onSubmit={logFormCheck}>
-        <div className="mb-3 mt-3">
-          <label htmlFor="userid" className="form-label"> 아이디</label >
-          <input type="text" className="form-control" id="userid"
-            placeholder="아이디입력" name="userid"
-            onChange={setLoginForm}/>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="userpwd" className="form-label">비밀번호</label>
-          <input type="password" className="form-control" id="userpwd"
-            placeholder="비밀번호입력" name="userpwd" 
-            onChange={setLoginForm}/>
-        </div>
-        <div className="d-grid">
-          <button  className="btn btn-primary">Login</button>
-
-        </div>
+    <div>
+      <form onSubmit={formCheck}>
+        <h2 className="text-center">로그인</h2>
+        <input
+          type="text"
+          placeholder="아이디 입력"
+          id="userid"
+          name="userid"
+          onChange={dataChange}
+        />
+        <input
+          type="password"
+          placeholder="비밀번호 입력"
+          id="userpwd"
+          name="userpwd"
+          onChange={dataChange}
+        />
+        <button type="submit">로그인</button>
+        <button type="button" onClick={isBtn}>
+          회원가입
+        </button>
       </form>
     </div>
-  )
+  );
 }
-export default Login
+
+export default Login;
