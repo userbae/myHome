@@ -7,9 +7,9 @@ import SignUp from "./SignUp";
 function Layout() {
   const logoutFnc = () => {
     // 로그인 정부 삭제 후 홈페이지 이동
-    sessionStorage.removeItem("logStatus")
-    location.href = "/"
-  }
+    sessionStorage.removeItem("logStatus");
+    location.href = "/";
+  };
   return (
     <div className="container-xl">
       <Link to="/">
@@ -25,17 +25,33 @@ function Layout() {
 
       <div className="main">
         <div className="loginForm">
-          {(sessionStorage.getItem("logStatus") == null || sessionStorage.getItem("logStatus") != "Yes")
-            ? (<div >
-              <Link to="/login" style={{backgroundColor:"orange", textAlign: "center",}}>Blog 로그인</Link>
-              <Link to="/signup" style={{textAlign:"center"}} >회원가입</Link>
-            </div>) :
-            (<div className="inForm">
+          {sessionStorage.getItem("logStatus") == null ||
+          sessionStorage.getItem("logStatus") != "Yes" ? (
+            <div>
+              <Link
+                to="/login"
+                style={{
+                  backgroundColor: "orange",
+                  textAlign: "center",
+                  borderRadius: "10px",
+                }}
+              >
+                Blog 로그인
+              </Link>
+              <Link
+                to="/signup"
+                style={{ textAlign: "center", fontSize: ".8em" }}
+              >
+                회원가입
+              </Link>
+            </div>
+          ) : (
+            <div className="inForm">
               <h2 className="text-center"></h2>
               <img src="src/assets/img/people.png" />
               <button onClick={logoutFnc}>로그아웃</button>
-            </div>)}
-
+            </div>
+          )}
         </div>
         <div className="content">
           <Outlet />

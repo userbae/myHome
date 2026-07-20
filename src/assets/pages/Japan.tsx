@@ -53,7 +53,7 @@ function Japan() {
     lng: locations[0].lng,
   });
   const apiKey = "";
-  
+  console.log(location);
   return (
     <div>
       {/* 지역 이동 버튼 레이아웃 */}
