@@ -3,10 +3,17 @@ import "../css/home.css";
 import Japan from "./Japan";
 
 function Home() {
+  const loginChack = () => {
+    console.log(sessionStorage.getItem("logStatus") != "Yes")
+    if(sessionStorage.getItem("logStatus") == null || sessionStorage.getItem("logStatus") != "Yes") {
+      alert("아이디를 입력하세요")
+      return false}
+  }
+
   return (
-    <div>
+    <div onChange={loginChack}>
       <h2>전체글보기</h2>
-      <div className="row text-center title">
+      <div className="row text-center title" >
         <div className="col-4">제목</div>
         <div className="col">작성자</div>
         <div className="col">작성일</div>

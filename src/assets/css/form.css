@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8%;
+  width: 500px;
+}
+
+.form h2 {
+  color: orange;
+  font-size: 5em;
+  margin-bottom: 5%;
+}

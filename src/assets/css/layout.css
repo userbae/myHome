@@ -7,6 +7,7 @@
   align-items: end;
   background-color: wheat;
 }
+
 .banner h1 {
   font-size: 3rem;
 }
@@ -22,14 +23,28 @@
   gap: 30px;
 }
 
+.loginForm {
+  flex: 1;
+}
+
 .loginForm div {
   display: flex;
   flex-direction: column;
   padding: 10px 0;
   border-top: 3px solid orange;
   border-bottom: 3px solid orange;
+  font-size: 1.5em;
+}
+
+.inForm {
+  align-items: center;
+}
+
+.inForm img {
+  width: 80%;
 }
 
 .content {
   width: 100%;
+  flex: 5;
 }

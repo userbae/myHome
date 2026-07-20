@@ -4,8 +4,13 @@
 }
 
 .introduce img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 1px solid black;
+}
+
+.introduce pre {
+  margin-left: 10px;
+  font-size: 2em;
 }
